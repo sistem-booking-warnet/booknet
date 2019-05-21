@@ -1,3 +1,21 @@
+<?php
+$servername = "localhost";
+$database = "sbw";
+$username = "root";
+$password = "";
+
+//nama database: sbw (sistem booking warnet)
+// membuat koneksi
+$conn = mysqli_connect($servername, $username, $password, $database);
+// mengecek koneksi
+if (!$conn) {
+    die("Koneksi gagal: " . mysqli_connect_error());
+}
+echo "Koneksi berhasil";
+mysqli_close($conn);
+
+?>
+
 <html>
 <head>
 <title>BT	ride your creativity</title>
@@ -308,7 +326,7 @@ $("#"+content_show).slideDown();
 
 <div id="footer">
 <div id="center-footer">
-Copyright © 2014/2015 Pahala Bima<br />
+Copyright Â© 2014/2015 Pahala Bima<br />
 
 </div>
 </div>
