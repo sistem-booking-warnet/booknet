@@ -241,6 +241,34 @@ $("#"+content_show).slideDown();
           </div>
 		  <input type="submit" name="register" value ="REGISTER" class="button button-block">
 		  </form>
+		 <?php
+			
+			if (isset($_POST["register"])) {
+
+				include "koneksi_database.php";
+				$nama = $_POST["nama"];
+				$alamat = $_POST['alamat'];
+				$cp = $_POST['cp'];
+				$email = $_POST["email"];
+				$password = $_POST["password"];
+				
+				$query = "
+					INSERT INTO pengguna
+					(nama, alamat, cp, email, password)
+					VALUES ('$nama', '$alamat', '$cp', '$email', '$password')
+				";
+
+				$exe = mysql_query($query);
+
+				if (!$exe) {
+					die('Gagal :' .mysql_error());
+				} else {
+					echo "<h2 style='color:green;'><b>Registrasi Berhasil</b></h2>";
+					mysql_close($conn);
+				}
+			}
+
+			?>
 		</div>
 		
 		<div id="login">   
