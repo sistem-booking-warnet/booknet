@@ -6,12 +6,10 @@ $password = "";
 
 //nama database: sbw (sistem booking warnet)
 // membuat koneksi
-$conn = mysqli_connect($servername, $username, $password, $database);
+$conn = mysql_connect($servername, $username, $password);
+mysql_select_db('sbw');
 // mengecek koneksi
 if (!$conn) {
-    die("Koneksi gagal: " . mysqli_connect_error());
+    die("Koneksi gagal: " . mysql_connect_error());
 }
-echo "Koneksi berhasil";
-mysqli_close($conn);
-
 ?>
