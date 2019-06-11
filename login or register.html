@@ -1,3 +1,4 @@
+<?php include "koneksi_database.php"; ?>
 <html>
 <head>
 <title>BT	ride your creativity</title>
@@ -200,23 +201,30 @@ $("#"+content_show).slideDown();
 	  <div class="tab-content">
         <div id="signup">   
           <h1>Register gratis</h1>
-		    <form action="act_register.php" method="POST">
+		    <form action="" method="POST" target="_self">
 			
 		  <div class="top-row">
             <div class="field-wrap">
 			<label>
-                Nama depan<span class="req">*</span>
+                Nama<span class="req">*</span>
               </label>
               <input class="input" name="nama" type="text" required autocomplete="off" />
             </div>
 			
-			 <div class="field-wrap">
+			  <div class="field-wrap">
               <label>
-                Nama belakang<span class="req">*</span>
+                Alamat<span class="req">*</span>
               </label>
-              <input class="input" type="text"required autocomplete="off"/>
-            </div>
+              <textarea name="alamat" required ></textarea>
+              </div>
 			</div>
+			    
+		<div class="field-wrap">
+            <label>
+              Contact Person<span class="req">*</span>
+            </label>
+            <input class="input" name="cp" type="text" required autocomplete="off"/>
+          </div>
 			
 			<div class="field-wrap">
             <label>
@@ -231,7 +239,7 @@ $("#"+content_show).slideDown();
             </label>
             <input class="input" name="password" type="password"required autocomplete="off"/>
           </div>
-		  <a href="Home_logout.html" target="_blank"><button class="button button-block"/>Register</button></a>
+		  <input type="submit" name="register" value ="REGISTER" class="button button-block">
 		  </form>
 		</div>
 		
