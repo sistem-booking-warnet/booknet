@@ -274,30 +274,43 @@ $("#"+content_show).slideDown();
 		<div id="login">   
           <h1>Selamat datang</h1>
 
-          <form action="/" method="post">
+          <form action="" method="post" target="_self">
 
             <div class="field-wrap">
             <label>
               Email<span class="req">*</span>
             </label>
-            <input class="input" type="email"required autocomplete="off"/>
+            <input class="input" name="email" type="email"required autocomplete="off"/>
           </div>
 
           <div class="field-wrap">
             <label>
               Password<span class="req">*</span>
             </label>
-            <input class="input" type="password"required autocomplete="off"/>
+            <input class="input" name="password" type="password"required autocomplete="off"/>
           </div>
 
-          
-
-          <a href="Home_logout.html" target="_blank"><button class="button button-block"/>Login</button></a>
-		  
-    
-
+         <input type="submit" name="login" value ="LOGIN" class="button button-block">
 
           </form>
+			<?php
+			
+			if(isset($_POST["login"])) {
+
+				include "koneksi_database.php";
+
+			    $email   = $_POST["email"];
+			    $password   = $_POST["password"];
+
+			    $query = mysql_query("SELECT * FROM pengguna WHERE email = '$email' AND password = '$password' ");
+			    $cek = mysql_num_rows($query);
+			  
+			    if ($cek) {
+			    	echo "Nama Pengguna terdaftar";
+			    } else {
+			    	echo "Nama Penguna tidak ada";
+			}}
+			?>
 		</div>
 	  </div>
 	  </div>
